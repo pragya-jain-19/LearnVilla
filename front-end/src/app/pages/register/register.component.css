@@ -1,0 +1,67 @@
+.bg-img{
+  background-image: url("https://img.freepik.com/free-photo/elevated-view-laptop-earphones-crumpled-papers-pencil-blank-spiral-notepad-frame-black-background_23-2148080331.jpg");
+background-size:cover;
+background-repeat: no-repeat;
+font-family: 'Numans', sans-serif;
+}
+
+.topMargin {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.heading {
+  text-align: center;
+  margin-top: 40px;
+  font-family: 'Numans', sans-serif;
+}
+
+.container.registerDiv {
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  width: 50%;
+  color: #fff;
+}
+
+.registerFormClass {
+  padding: 50px 50px 50px 50px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: transparent;
+  color: #fff;
+}
+
+input.form-control::placeholder {
+  color: #d3d3d3;
+}
+
+.btn-primary {
+  background-color: #f8f9fa;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #ccc;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}

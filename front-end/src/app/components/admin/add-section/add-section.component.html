@@ -1,0 +1,18 @@
+<app-sidenav></app-sidenav>
+<div class="sectionDiv">
+    
+    <form class="container" [formGroup]="addSectionForm">
+        <h4>Add Section</h4>
+        <input type="text" placeholder="Enter Course ID"  [formControl]="courseId">
+        <p class="text-danger small" [hidden]="courseId.valid || courseId.untouched">Enter valid Course ID</p>
+        <input type="text" placeholder="Enter section number" [formControl]="sectionNumber">
+        <p class="text-danger small" [hidden]="sectionNumber.valid || sectionNumber.untouched">Enter valid Section Number</p>
+        <input type="text" placeholder="Enter section name" [formControl]="sectionName">
+        <p class="text-danger small" [hidden]="sectionName.valid || sectionName.untouched">Enter valid Section Name</p>
+        <input type="text" placeholder="Enter section content" [formControl]="sectionContent">
+        <p class="text-danger small" [hidden]="sectionContent.valid || sectionContent.untouched">Enter valid Section Content</p>
+        <input type="text" placeholder="Enter video URL" [formControl]="videoUrl">
+        <p class="text-danger small" [hidden]="videoUrl.valid || videoUrl.untouched">Enter valid Video URL. </p>
+        <button class="btn btn-green" [disabled]="addSectionForm.invalid" (click)="addSection()">Add</button>
+    </form>
+</div>

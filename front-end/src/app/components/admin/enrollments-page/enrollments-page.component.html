@@ -1,0 +1,40 @@
+<app-sidenav></app-sidenav>
+<div>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <div class="flex">
+                    <span class="heading">Enrollments List</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Student ID</th>
+                            <th>Course ID</th>
+                            <th>Progress</th>
+                            <th>Progress Left</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(enrollment of enrollments; track enrollment.enrollmentId) {
+                        <tr>
+                            <td>{{enrollment.enrollmentId}}</td>
+                            <td>{{enrollment.studentId}}</td>
+                            <td>{{enrollment.courseId}}</td>
+                            <td>{{enrollment.progress}}</td>
+                            <td>{{enrollment.isProgressLeft}}</td>
+                            <td>
+                                <a class="btn btn-outline-danger btn-sm" (click)="deleteEnrollment(enrollment.enrollmentId)">Delete</a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

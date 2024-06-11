@@ -1,0 +1,48 @@
+/* Container Styling */
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1em;
+    border: 2px solid #000; /* Black */
+    border-radius: 10px; /* Rounded Border */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Input Field Styling */
+  .container input[type="text"] {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    border: 0.5px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Validation Message Styling */
+  .container .red-text {
+    color: #f00; /* Red */
+    margin-bottom: 0.5em;
+  }
+  
+  /* Button Styling */
+  .container .btn-green {
+    background-color: #4CAF50; /* Green */
+    color: #fff; /* White */
+    border: none;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+  }
+  
+  .container .btn-green:disabled {
+    background-color: #ccc; /* Gray */
+    cursor: not-allowed;
+  }
+
+  .categoryDiv{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }

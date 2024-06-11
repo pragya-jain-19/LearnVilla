@@ -1,0 +1,53 @@
+<app-student-nav></app-student-nav>
+<div class="md-6 outerDiv">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100">
+              <br>
+                <img [src]="course.courseImage" class="card-img-top" alt="Course Image">
+                <hr>
+                <div class="card-body">
+                    <h3 class="card-title">{{course.courseName}}</h3>
+                    <p class="card-text">{{course.description}}</p>
+                    <div class="details">
+                      <p class="card-text center-align">Rating - {{course.rating}}</p>
+                      <p class="card-text center-align">{{course.duration}} hrs</p>
+                      <p class="card-text center-align">{{course.studentsEnrolled}} students enrolled</p>
+
+                    </div>
+                    <br>
+                    <strong>
+                        <p class="card-text details-right">Rs. {{course.price}}/-</p>
+                    </strong>
+                </div>
+                <button (click)="viewAllSections()">View Sections</button>
+            </div>
+        </div>
+    
+
+    @if(view) {
+    <div class="innerDiv">
+        <h5 class="section">Sections of Course {{course.courseId}}</h5>
+        @for(section of sections; track section.sectionId) {
+            <!-- id="accordionExample" -->
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      {{section.sectionNumber}}. {{section.sectionName}}
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <p>{{section.sectionContent}}</p>
+                      <a class="nav-link link-details" [href]="section.videoUrl" target="_blank">View Content</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        }
+    </div>
+    }
+</div>
+
+</div>

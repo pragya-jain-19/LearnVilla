@@ -1,0 +1,22 @@
+.container {
+    margin-top:50px;
+    margin-bottom: 50px;
+}
+
+.card-body{
+    font-size: small;
+    text-align: center;
+}
+
+.heading{
+    font-size: x-large;
+    margin-left: 450px;
+}
+
+button {
+    margin-top: 2px;
+}
+
+.btn.add:hover {
+    background-color: palevioletred;
+}

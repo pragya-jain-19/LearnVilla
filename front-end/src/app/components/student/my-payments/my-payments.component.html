@@ -1,0 +1,39 @@
+<app-student-nav></app-student-nav>
+<div>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <div class="flex">
+                        <h5>Payments List</h5>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Student ID</th>
+                            <th>Courses</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Payment Time</th>
+                            <!-- <th>Action</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(payment of payments; track payment.paymentId) {
+                        <tr>
+                            <td>{{payment.paymentId}}</td>
+                            <td>{{payment.studentId}}</td>
+                            <td>{{payment.courseIds}}</td>
+                            <td>{{payment.amount}}</td>
+                            <td>{{payment.status}}</td>
+                            <td>{{payment.paymentTime}}</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

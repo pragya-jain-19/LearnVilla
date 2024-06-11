@@ -1,0 +1,37 @@
+<div class="container md-6 outerDiv">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100 gradient-card">
+                <br>
+                <img [src]="course.courseImage" class="card-img-top" alt="Course Image">
+                <hr>
+                <div class="card-body">
+                    <h4 class="card-title">{{course.courseName}}</h4>
+                    <p class="card-text">{{course.description}}</p>
+                    <p class="card-text center-align">Rating - {{course.rating}}</p>
+                    <p class="card-text center-align">{{course.duration}} hrs</p>
+                    <p class="card-text center-align">{{course.studentsEnrolled}} students enrolled</p>
+                    <p class="card-text center-align">Created date : {{course.createdDate}}</p>
+                    <p class="card-text center-align">Last Updated : {{course.updatedDate}}</p>
+                    <br>
+                    <strong><p class="card-text details-right">Rs. {{course.price}}/-</p></strong>
+                </div>
+                <hr>
+                <button (click) = "viewAllSections(course.courseId)">View Sections</button>
+                <button class="float-end" (click) = "addToWishlist(course.courseId)">Add to Wishlist</button>
+                <br>
+            </div>
+        </div>
+        @if(viewAll) {
+            <div class="innerDiv card">
+                <h5 class="card-header">Sections of Course ID {{course.courseId}}</h5>
+                <div class="card-body">
+                    @for(section of sections; track section.sectionId){
+                        <p class="card-text">{{section.sectionNumber}}. {{section.sectionName}}</p>
+                    }
+                </div>
+                    
+            </div>
+        }   
+    </div>
+</div>

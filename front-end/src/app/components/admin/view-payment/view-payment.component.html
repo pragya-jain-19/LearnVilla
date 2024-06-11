@@ -1,0 +1,34 @@
+<app-sidenav></app-sidenav>
+<div class="container mt-5 mb-5">
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Payment ID : {{payment.paymentId}}</th>
+                    <th class="text-right">Student : {{student.email}}</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <table class="table table-striped text-center">
+        <thead>
+            <tr>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Course price</th>
+                <th>Payment Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(course of courses; track course.courseId) {
+                <tr>
+                    <td>{{course.courseId}}</td>
+                    <td>{{course.courseName}}</td>
+                    <td>{{course.price}}</td>
+                    <td>{{payment.paymentTime}}</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

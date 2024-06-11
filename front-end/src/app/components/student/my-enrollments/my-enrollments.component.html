@@ -1,0 +1,26 @@
+<app-student-nav></app-student-nav>
+<div class="container outer container-fluid">
+    <div class="row row-cols-1 row-cols-md-3 g-4 inner">
+        @for(course of courses; track course.courseId){
+        <div class="col">
+            <div class="card h-100 container-fluid">
+                <br>
+                <img [src]="course.courseImage" class="card-img-top" alt="Course Image">
+                <hr>
+                <div class="card-body">
+                    <h3 class="card-title">{{course.courseName}}</h3>
+                    <p class="card-text">{{course.description}}</p>
+                    <p class="details">Rating : {{course.rating}}</p>
+                    <p class="details">{{course.duration}}</p>
+                    <p class="details">Students enrolled : {{course.studentsEnrolled}}</p>
+                    <p class="details">Enrolled date : {{course.enrolledDate | date}}</p>
+                </div>
+                <strong><p class="details-right">Rs. {{course.price}}/-</p></strong>
+                <hr>
+                <button routerLink="/view-course-sections/{{course.courseId}}" routerLinkActive="active">View Sections</button>
+            </div>
+        </div>
+        } 
+    </div>
+</div>
+

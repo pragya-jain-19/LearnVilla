@@ -1,0 +1,52 @@
+<div class="bg-img">
+  <div class="container topMargin">
+    <div class="container col-md-6 loginDiv">
+      <div class="heading">
+        <h2>Login to LearnVilla</h2>
+      </div>
+      <form class="loginFormClass" (ngSubmit)="login()" #loginForm="ngForm" (change)="formError = ''">
+        <div class="form-group mb-3">
+          <input
+          type="email"
+          pattern="[A-Za-z0-9.]+@[A-Za-z]{3,15}.[A-Za-z]{2,3}"
+          class="form-control"
+          name="email"
+          placeholder="Enter email"
+          [(ngModel)]="studentData.email"
+          email
+          required
+          #email="ngModel"
+          />
+          <span class="text-info small" *ngIf="!email.valid && email.touched"
+          >Please enter a valid email</span
+          >
+        </div>
+        <div class="form-group mb-3">
+          <input
+          type="password"
+          class="form-control"
+          name="password"
+          minlength="8"
+          pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+          placeholder="Enter password"
+          required
+          [(ngModel)]="studentData.password"
+          #password="ngModel"
+          />
+          <span class="text-info small" *ngIf="!password.valid && password.touched"
+          >Password is not valid (length must be greater than 8 characters and must comprise of atleast 1 uppercase, lowercase, digit and special character)</span
+          >
+        </div>
+        <div class="d-flex align-items-center mb-5">
+          <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">
+            Submit
+          </button>
+          <a style="cursor: pointer" class="ms-auto text-decoration-none mt-auto" routerLink = "/register" routerLinkActive = "active" >New User? Sign Up</a>
+        </div>
+        <div class="text-danger small text-center" *ngIf="formError !== ''">
+          {{ formError }}
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>

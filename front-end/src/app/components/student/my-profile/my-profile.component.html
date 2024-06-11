@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="view-account">
+        <section class="module">
+            <div class="module-inner">
+                <div class="side-bar">
+                    <div class="user-info">
+                        <img class="img-profile img-circle img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGu0QkgHmyx6AhqrghWdpI_-NN1CLIT1puVF7XZ88oMA&s" alt="Student-profile">
+                        <ul class="meta list list-unstyled">
+                            <li class="name">Hi, {{student.firstName}}</li>
+                            <li class="email"><a>{{student.email}}</a></li>
+                        </ul>
+                    </div>
+            		<nav class="side-menu">
+        				<ul class="nav">
+        					<li class="nav-tabs active"><a routerLink="/my-profile/{{student.studentId}}"><span class="fa fa-user"></span>Update Profile</a></li>
+        					<li class="nav-tabs"><a routerLink="/student" routerLinkActive="active"><span class="fa fa-arrow-left"></span>Dashboard</a></li>
+        				</ul>
+        			</nav>
+                </div>
+                <div class="content-panel">
+                    <h1 class="title">Student's Profile</h1>
+                    <form class="form-horizontal" #updateProfileForm="ngForm">
+                        <fieldset class="fieldset">
+                            <h2 class="fieldset-title">Personal Info</h2>
+                            <div class="form-group avatar container">
+                                <figure >
+                                    <img class="img-rounded img-responsive" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGu0QkgHmyx6AhqrghWdpI_-NN1CLIT1puVF7XZ88oMA&s" alt="Student profile">
+                                </figure>
+                            </div>
+                            <div class="form-group container">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label"><h6>Student ID</h6></label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" disabled [value]="student.studentId" name="stuId" [(ngModel)]= "stuId">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group container">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label"><h6>First Name</h6></label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" [value]="student.firstName" name="fname" [(ngModel)]= "fname">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group container">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label"><h6>Last Name</h6></label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" [value]="student.lastName" name="lname" [(ngModel)]= "lname">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group container">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label"><h6>Username</h6></label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" [value]="student.email" name="uname" [(ngModel)]= "uname">
+                                </div>
+                            </div>
+                            <br>
+
+                        </fieldset>
+                        <fieldset class="fieldset">
+                            <div class="form-group container">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label"><h6>Mobile Number</h6></label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" [value]="student.mobile" name="mobile" [(ngModel)]= "mobile">
+                                </div>
+                            </div>
+                            <br>
+                            <button class="btn btn-outline-primary" (click)="changePassword()" *ngIf="!change; else updatePassword">Change Password</button>
+                            <br>
+                            <ng-template #updatePassword>
+                                <div class="form-group container">
+                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label"><h6>Password</h6></label>
+                                    <div class="col-md-10 col-sm-9 col-xs-12">
+                                        <input type="password" class="form-control" [value]="student.password" name="password" [(ngModel)]= "password">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group container">
+                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label"><h6>Confirm Password</h6></label>
+                                    <div class="col-md-10 col-sm-9 col-xs-12">
+                                        <input type="password" class="form-control" [value]="student.confirmPassword" name="confirmPassword" [(ngModel)]= "confirmPassword">
+                                    </div>
+                                </div>
+                                <br>
+                            </ng-template>
+                            <br>
+
+                            <button class="btn btn-outline-primary" (click)="changeStatus()" *ngIf="!isActive; else updateStatus">Change Status</button>
+                            <br>
+                            <ng-template #updateStatus>
+                                <div class="form-group container">
+                                    <label class="col-md-2 col-sm-3 col-xs-12 control-label"><h6>is Active</h6></label>
+                                    <div class="col-md-10 col-sm-9 col-xs-12">
+                                        <input type="text" class="form-control" [value]="!student.isActive" name="isUserActive" [(ngModel)]= "isUserActive"> 
+                                    </div>
+                                </div>
+                                <br>
+                            </ng-template>
+                            <br>
+                            <br>
+                            <br>
+                        </fieldset>
+                        <hr>
+                        <div class="form-group">
+                            <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
+                                <button class="btn btn-outline-primary" type="submit" value="Update Profile" (click)="updateProfile(updateProfileForm)">Update Profile</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

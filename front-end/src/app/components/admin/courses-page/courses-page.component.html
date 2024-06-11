@@ -1,0 +1,58 @@
+<app-sidenav></app-sidenav>
+<div>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <div class="flex">
+                    <span class="heading">
+                        Courses List
+                    </span>
+                    <span>
+                        <a routerLink="/courses/add-course" routerLinkActive="active"><button
+                                class="btn btn-outline-secondary btn-sm float-end">Add Course</button></a>
+                    </span>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Course</th>
+                            <th>Description</th>
+                            <th>Duration</th>
+                            <th>Price</th>
+                            <th>Students</th>
+                            <th>Rating</th>
+                            <th>Language</th>
+                            <th colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(course of courses; track course.courseId) {
+                        <tr>
+                            <td>{{course.courseId}}</td>
+                            <td>{{course.courseName}}</td>
+                            <td>{{course.description}}</td>
+                            <td>{{course.duration}}</td>
+                            <td>{{course.price}}</td>
+                            <td>{{course.studentsEnrolled}}</td>
+                            <td>{{course.rating}}</td>
+                            <td>{{course.language}}</td>
+                            <td>
+                                <a class="btn btn-outline-success btn-sm"
+                                    routerLink="/courses/update-course/{{course.courseId}}"
+                                    routerLinkActive="active">Update</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-outline-danger btn-sm"
+                                    (click)="deleteCourse(course.courseId)">Delete</a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

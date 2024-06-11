@@ -1,0 +1,30 @@
+<app-sidenav></app-sidenav>
+<div class="courseDiv">
+
+    <form class="container" [formGroup]="updateCourseForm">
+        <h4>Update Course</h4>
+        <input type="text" placeholder="Enter Course ID" [formControl]="courseId">
+        <p class="text-danger small" [hidden]="courseId.valid || courseId.untouched">Enter valid Course ID</p>
+        <input type="text" placeholder="Enter Course Name" [formControl]="courseName">
+        <p class="text-danger small" [hidden]="courseName.valid || courseName.untouched">Enter valid Course Name </p>
+        <input type="text" placeholder="Enter description" [formControl]="description">
+        <p class="text-danger small" [hidden]="description.valid || description.untouched">Enter valid description</p>
+        <input type="text" placeholder="Enter Category ID" [formControl]="categoryId">
+        <p class="text-danger small" [hidden]="categoryId.valid || categoryId.untouched">Enter valid Category ID </p>
+        <input type="text" placeholder="Enter duration" [formControl]="duration">
+        <p class="text-danger small" [hidden]="duration.valid || duration.untouched">Enter duration</p>
+        <input type="text" placeholder="Enter price" [formControl]="price">
+        <p class="text-danger small" [hidden]="price.valid || price.untouched">Enter price (price should be greater than
+            100)</p>
+        <input type="text" placeholder="Enter number of students enrolled" [formControl]="studentsEnrolled">
+        <p class="text-danger small" [hidden]="studentsEnrolled.valid || studentsEnrolled.untouched">Enter students
+            enrolled</p>
+        <input type="text" placeholder="Enter rating" [formControl]="rating">
+        <p class="text-danger small" [hidden]="rating.valid || rating.untouched">Enter rating</p>
+        <input type="text" placeholder="Enter image URL" [formControl]="courseImage">
+        <p class="text-danger small" [hidden]="courseImage.valid || courseImage.untouched">Enter course image URL</p>
+        <input type="text" placeholder="Enter language" [formControl]="language">
+        <p class="text-danger small" [hidden]="language.valid || language.untouched">Enter valid language</p>
+        <button class="btn btn-green" [disabled]="updateCourseForm.invalid" (click)="updateCourse()">Update</button>
+    </form>
+</div>

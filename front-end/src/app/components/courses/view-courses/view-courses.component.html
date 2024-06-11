@@ -1,0 +1,24 @@
+<div class="container outer container-fluid">
+    <div class="row row-cols-1 row-cols-md-3 g-4 m-20 inner">
+        @for(course of courses; track course.courseId){
+        <div class="col">
+            <div class="card h-100 container-fluid pt-20">
+                <br>
+                <img [src]="course.courseImage" class="card-img-top" alt="Course Image">
+                <hr>
+                <div class="card-body">
+                    <h4 class="card-title">{{course.courseName}}</h4>
+                    <p class="card-text">{{course.description}}</p>
+                </div>
+                <strong>
+                    <p class="details-right">Rs. {{course.price}}/-</p>
+                </strong>
+                <hr>
+                <button (click)="viewCourseById(course.courseId)">View Course</button>
+                <button class="float-end" (click)="addToWishlist(course.courseId)">Add to Wishlist</button>
+                <br>
+            </div>
+        </div>
+        }
+    </div>
+</div>

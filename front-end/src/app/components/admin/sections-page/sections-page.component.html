@@ -1,0 +1,54 @@
+<app-sidenav></app-sidenav>
+<div>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <div class="flex">
+                    <span class="heading">
+                        Sections List
+                    </span>
+                    <span>
+                        <a routerLink="/sections/add-section" routerLinkActive="active"><button
+                                class="btn btn-outline-secondary btn-sm float-end">Add Section</button></a>
+                    </span>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Course</th>
+                            <th>Section</th>
+                            <th>Name</th>
+                            <th>Content</th>
+                            <th>Video URL</th>
+                            <th colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(section of sections; track section.sectionId) {
+                        <tr>
+                            <td>{{section.sectionId}}</td>
+                            <td>{{section.courseId}}</td>
+                            <td>{{section.sectionNumber}}</td>
+                            <td>{{section.sectionName}}</td>
+                            <td>{{section.sectionContent}}</td>
+                            <td><a href="{{section.videoUrl}}">{{section.videoUrl}}</a></td>
+                            <td>
+                                <a class="btn btn-outline-success btn-sm"
+                                    routerLink="/sections/update-section/{{section.sectionId}}"
+                                    routerLinkActive="active">Update</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-outline-danger btn-sm"
+                                    (click)="deleteSection(section.sectionId)">Delete</a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

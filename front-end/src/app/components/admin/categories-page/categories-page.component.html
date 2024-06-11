@@ -1,0 +1,41 @@
+<app-sidenav></app-sidenav>
+<div>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <div class="flex">
+                    <span class="heading">
+                        Categories List
+                    </span>
+                    <span>
+                        <a routerLink="/categories/add-category"
+                            routerLinkActive="active"><button class="btn btn-outline-secondary btn-sm float-end">Add Category</button></a>
+                    </span>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Category</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(category of categories; track category.categoryId) {
+                        <tr>
+                            <td>{{category.categoryId}}</td>
+                            <td>{{category.categoryName}}</td>
+                            <td>
+                                <button class="btn btn-outline-success btn-sm" (click) = "updateCategory(category.categoryId, category.categoryName)">Update</button>
+                                <a class="btn btn-outline-danger btn-sm" (click)="deleteCategory(category.categoryId)">Delete</a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

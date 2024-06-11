@@ -1,0 +1,49 @@
+<app-student-nav></app-student-nav>
+<div class="container">
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link active"><button class="float-end" (click)="deleteWishlist()">
+                    Delete Wishlist
+                </button></a>
+        </li>
+    </ul>
+</div>
+<div class="container outer container-fluid">
+    @if(courses !== undefined) {
+    <div class="row row-cols-1 row-cols-md-3 g-4 inner">
+        @for(course of courses; track course.courseId){
+        <div class="col">
+            <div class="card h-100 container-fluid">
+                <br>
+                <img [src]="course.courseImage" class="card-img-top" alt="Course Image">
+                <hr>
+                <div class="card-body">
+                    <h3 class="card-title">{{course.courseName}}</h3>
+                    <p class="card-text">{{course.description}}</p>
+                </div>
+                <strong>
+                    <p class="details-right">Rs. {{course.price}}/-</p>
+                </strong>
+                <hr>
+                <button routerLink="/courses/{{course.courseId}}" routerLinkActive="active">View Course</button>
+                <button class="float-end" (click)="deleteFromWishlist(course.courseId)">Delete From Wishlist</button>
+            </div>
+        </div>
+        }
+    </div>
+    }
+</div>
+<br>
+<hr>
+<div class="container details-right">
+    <p class="price">Total price :  Rs. {{wishlist.price}}/-</p>
+    <a><button class="btn btn-outline-primary float-end" (click) = "proceedToPay()">
+        Proceed to Pay
+    </button></a>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+

@@ -1,0 +1,16 @@
+<app-sidenav></app-sidenav>
+<div class="categoryDiv">
+
+    <form class="container" [formGroup]="updateCategoryForm">
+        <h4>Update Category</h4>
+        <input type="text" placeholder="Enter Category ID" [value]="id" [formControl]="categoryId">
+        <!-- Using validations  -->
+        <p class="text-danger small" [hidden]="categoryId.valid || categoryId.untouched">Category ID
+            should contain 2 characters in uppercase only.</p>
+        <input type="text" placeholder="Enter Category name" [formControl]="categoryName">
+        <!-- Using validations  -->
+        <p class="text-danger small" [hidden]="categoryName.valid || categoryName.untouched">Enter valid category name.</p>
+        <button class="btn btn-green" [disabled]="updateCategoryForm.invalid" (click)="updateCategory()">Update</button>
+    </form>
+    
+</div>
